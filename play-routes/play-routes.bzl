@@ -65,6 +65,8 @@ def _impl(ctx):
     tools = [ctx.executable._zipper],
   )
 
+  return [JavaInfo(ctx.outputs.srcjar, compile_jar=ctx.outputs.srcjar)]
+
 play_routes = rule(
   implementation = _impl,
   doc = "Compiles Play routes files templates to Scala sources files.",
